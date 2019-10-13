@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>RK.Registration</title>
+    <link href="logn.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis,cmo/css?family=play" rel="stylesheet">
+    <script src="x.js"></script>
+    <style>
+        #pw {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: yellow;
+            color: #000;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            right: 35%;
+            top: 30px;
+            font-size: 17px;
+            margin-right: 30px;
+        }
+
+        #pw.show{
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        @-webkit-keyframes fadein {
+            form {top:0; opacity:0;}
+            to{top: 30px; opacity: 1;}
+        }
+        @keyframes fadein {
+            from{top:0; opacity: 0;}
+            to{top:30px; opacity: 1;}
+        }
+        @-webkit-keyframes fadeout {
+            from{top:30px; opacity:1;}
+            to{top:0; opacity: 0;}
+        }
+        @keyframes fadeout {
+            from{top: 30px; opacity:1;}
+            to{top: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+<h1 >www.rk.com</h1>
+<div class="signin">
+    <form >
+        <h2 style="color: white">RK Log In</h2>
+        <input type="text" name="username" placeholder="Username" id="userName">
+        <input type="password" name="pass" placeholder="Password" id="userPassword"><br><br>
+        <a href="cong.html"><input type="button" value="Login" onclick="return validate()"></a><br>
+        <br>
+        <div id="container">
+            <a href="reset.html" style="margin-right:0px; font-size:13px; font-family: Tahoma, Geneva,Sans-Serif;">Reset password</a>
+            <a href="forget.html" style="margin-right:0px; font-size:13px; font-family: Tahoma, Geneva,Sans-Serif;">Forget password</a>
+        </div><br><br><br><br><br><br>
+        Don't have account?<a href="sign.html">&nbsp;Sign Up</a>
+        <div id="pw">username or password invalid,try again.</div>
+    </form>
+</div>
+</body>
+<script>
+    function myFunction() {
+        var x = document.getElementById("pw");
+        x.className = "show";
+        setTimeout(function () {
+            x.className =
+                x.className.replace("show", "");
+        }, 3000);
+    }
+    function validate()
+    {
+        var username = document.getElementById("userName");
+        var password = document.getElementById("userPassword");
+        if (username.value =="" || password.value ==""||username.value!=="www.admin@rk.com" || password.value!==""+x)
+        {
+            myFunction();
+            return false;
+        }
+        else if (username.value=="admin@rk.lk" && password.value=="1234")
+        {
+            true;
+        }
+    }
+</script>
+</html>

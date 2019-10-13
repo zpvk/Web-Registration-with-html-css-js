@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>sign up</title>
+    <link href="sign.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis,cmo/css?family=play" rel="stylesheet">
+    <style>
+        #msg1 {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: yellow;
+            color: #000;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            right: 35%;
+            top: 30px;
+            font-size: 17px;
+            margin-right: 30px;
+        }
+
+        #msg1.show{
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;}
+        #m {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: yellow;
+            color: #000;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            right: 35%;
+            top: 30px;
+            font-size: 17px;
+            margin-right: 30px;
+        }
+
+        #m.show{
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        @-webkit-keyframes fadein {
+            form {top:0; opacity:0;}
+            to{top: 30px; opacity: 1;}
+        }
+        @keyframes fadein {
+            from{top:0; opacity: 0;}
+            to{top:30px; opacity: 1;}
+        }
+        @-webkit-keyframes fadeout {
+            from{top:30px; opacity:1;}
+            to{top:0; opacity: 0;}
+        }
+        @keyframes fadeout {
+            from{top: 30px; opacity:1;}
+            to{top: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+<div class="signup">
+    <form>
+        <h2 style="color: #fff;">Sign Up</h2>
+        <input type="text" name="username" placeholder="First name" id="t1"><br><br>
+        <input type="text" name="username2" placeholder="Last name" id="t2"><br><br>
+        <input type="password" name="pass" placeholder="Password" id="np"><br><br>
+        <input type="password" name="passc" placeholder="Confirm Password" id="cp"><br><br>
+        <input type="text" name="email" placeholder="Email Address" id="em"><br><br>
+        <input type="button" value="Sign Up" onclick="return validatio()"><br><br>
+        <div id="m">Accout Successfull!</div>
+        <div id="msg1">Email invalid or Password did not matched</div>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("m");
+                x.className = "show";
+                setTimeout(function () {x.className =
+                    x.className.replace("show","");},3000);
+            }
+            function myFunction4() {
+                var x = document.getElementById("msg1");
+                x.className = "show";
+                setTimeout(function (){x.className =
+                    x.className.replace("show","");},3000);}
+            function validatio() {
+                var getemail = document.getElementById("em");
+                var t1 =document.getElementById("t1");
+                var t2 =document.getElementById("t2");
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var npassword = document.getElementById("np");
+                var cpassword = document.getElementById("cp");
+
+                if(getemail.value.match(mailformat) && npassword.value == cpassword.value && t1.value!=="" && t2.value!=="" && cpassword.value!=="" && npassword.value!=="" && getemail.value!=="" )
+                {
+                    myFunction();
+                    return true;
+                }
+                else{
+                    myFunction4();
+                    false;
+                }
+
+
+            }
+        </script>
+        Already have account?<a href="login.html" style="text-decoration: none; font-family: 'play', sans-serif; color: yellow;">&nbsp;Log In</a>
+    </form>
+</div>
+</body>
+</html>

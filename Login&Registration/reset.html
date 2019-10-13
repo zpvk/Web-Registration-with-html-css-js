@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Rest</title>
+    <link href="reset.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis,cmo/css?family=play" rel="stylesheet">
+    <script src="x.js"></script>
+    <style>
+        #msg {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: yellow;
+            color: #000;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            right: 35%;
+            top: 30px;
+            font-size: 17px;
+            margin-right: 30px;
+        }
+
+        #msg.show{
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        #emsg {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: yellow;
+            color: #000;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            right: 35%;
+            top: 30px;
+            font-size: 17px;
+            margin-right: 30px;
+        }
+
+        #emsg.show{
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        #emsg2 {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: yellow;
+            color: #000;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            right: 35%;
+            top: 30px;
+            font-size: 17px;
+            margin-right: 30px;
+        }
+
+        #emsg2.show{
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        @-webkit-keyframes fadein {
+            form {top:0; opacity:0;}
+            to{top: 30px; opacity: 1;}
+        }
+        @keyframes fadein {
+            from{top:0; opacity: 0;}
+            to{top:30px; opacity: 1;}
+        }
+        @-webkit-keyframes fadeout {
+            from{top:30px; opacity:1;}
+            to{top:0; opacity: 0;}
+        }
+        @keyframes fadeout {
+            from{top: 30px; opacity:1;}
+            to{top: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+<div class="reset">
+    <form>
+        <h2 align="center" style="color: #fff;">Reset password</h2>
+        <input type="password" name="username" placeholder="Old password" id="op"><br><br>
+        <input type="password" name="pass" placeholder="New Password" id="np" maxlength="10" ><br><br>
+        <input type="password" name="passc" placeholder="Confirm Password" id="cp" maxlength="10"><br><br>
+        <input type="button" value="Save" onclick="return validation()"><br><br>
+        <div id="msg">Your password changed successfully!! :)</div>
+        <div id="emsg">password not matched :(</div>
+        <div id="emsg2">password invaild</div>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("emsg");
+                x.className = "show";
+                setTimeout(function (){x.className =
+                    x.className.replace("show","");},3000);}
+            function myFunction2() {
+                var x = document.getElementById("emsg2");
+                x.className = "show";
+                setTimeout(function (){x.className =
+                    x.className.replace("show","");},3000);}
+            function myFunction3() {
+                var x = document.getElementById("msg");
+                x.className = "show";
+                setTimeout(function (){x.className =
+                    x.className.replace("show","");},3000);}
+            function validation()
+            {
+                var newpassword = document.getElementById("np");
+                var conpassword = document.getElementById("cp");
+                var opassword = document.getElementById("op");
+
+            if ( opassword.value !== ""+x || newpassword.value !== conpassword.value)
+            {
+                myFunction();
+                return false;
+            }
+            else {
+                if ( newpassword.value == "" ||conpassword.value == "" ||newpassword.textLength >10 || newpassword.textLength <6){
+                    myFunction2();
+                    return false;}
+                else {
+                myFunction3();
+                true;
+                x =document.getElementById("cp");
+            }
+            }}
+        </script>
+        <a href="login.html" style="text-decoration: none; color: yellow">Go back to Home page</a><br><br>
+    </form>
+</div>
+</body>
+</html>
